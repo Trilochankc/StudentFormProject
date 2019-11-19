@@ -13,52 +13,66 @@
         android:hint="EnterName"
         android:textSize="20dp"
         android:layout_margin="10dp"
-        android:id="@+id/edttext"/>
+        android:id="@+id/edttextName"/>
+
 
     <RadioGroup
+        android:id="@+id/radioGenderGroup"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:layout_height="wrap_content" >
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Male"/>
+        <RadioButton
+            android:id="@+id/radio_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/male_ch"/>
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Female"/>
+        <RadioButton
+            android:id="@+id/radio_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/female_ch"
+            android:checked="true"  />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Others"/>
+        <RadioButton
+            android:id="@+id/radio_Others"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/others_ch"
+            android:checked="true"  />
 
-</RadioGroup>
+    </RadioGroup>
 
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-      android:layout_margin="10dp"
-        android:padding="10dp"
-        />
+        android:layout_marginBottom="20dp"
+        android:id="@+id/country"
+        >
 
-    <TextView
+
+    </Spinner>
+
+    <AutoCompleteTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Enter Batch"
-        android:padding="10dp"/>
+        android:layout_marginBottom="20dp"
+        android:id="@+id/auto"/>
+
+
 
 <Button
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Save"/>
+    android:text="@string/button_label"
+    android:id="@+id/button"
+    />
 
-
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/result"/>
 
 
 </LinearLayout>
