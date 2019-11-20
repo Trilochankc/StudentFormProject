@@ -6,14 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.jar.Attributes;
@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
         //for name entry
         Name =findViewById(R.id.edttextName);
+
+
+
         //Soinner starts
         Spinner spinner = (Spinner) findViewById(R.id.country);
         autoCompleteTextView = findViewById(R.id.auto);
@@ -62,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
         );
         autoCompleteTextView.setAdapter(stringArrayAdapter);
         autoCompleteTextView.setThreshold(1);
+
+
+        Toast.makeText(MainActivity.this, autoCompleteTextView.getText(), Toast.LENGTH_SHORT).show();
+
             addButtonListener();
 
     }
