@@ -4,75 +4,172 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:scrollbarThumbVertical="@color/colorAccent">
 
     <EditText
+        android:id="@+id/etname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="EnterName"
-        android:textSize="20dp"
-        android:layout_margin="10dp"
-        android:id="@+id/edttextName"/>
+        android:hint="Enter First Name"
+        android:textAlignment="center"
+        android:textSize="40dp"></EditText>
 
+    <TextView
+        android:id="@+id/tvgnder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Please Select Gender"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textStyle="bold">
+
+    </TextView>
 
     <RadioGroup
-        android:id="@+id/radioGenderGroup"
+        android:id="@+id/rdogrp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/radio_male"
+            android:id="@+id/rdomale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/male_ch"/>
+            android:text="Male"
+            android:textSize="30dp"></RadioButton>
 
         <RadioButton
-            android:id="@+id/radio_female"
+            android:id="@+id/rdofemale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/female_ch"
-            android:checked="true"  />
+            android:text="Female"
+            android:textSize="30dp"></RadioButton>
+
 
         <RadioButton
-            android:id="@+id/radio_Others"
+            android:id="@+id/rdoother"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/others_ch"
-            android:checked="true"  />
+            android:text="Others"
+            android:textSize="30dp"></RadioButton>
+
 
     </RadioGroup>
 
-
     <Spinner
+        android:id="@+id/spcountry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/country"
-        >
-
+        android:contextClickable="true"
+        android:scrollbarSize="30dp">
 
     </Spinner>
 
+
     <AutoCompleteTextView
+        android:id="@+id/actvbatch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/auto"/>
+        android:hint="Enter Batch"
+        android:textAlignment="center"
+        android:textSize="30dp">
+
+    </AutoCompleteTextView>
+
+    <Button
+        android:id="@+id/btnsave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:text="Save Details"
+        android:textSize="25dp"/>
 
 
 
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/button_label"
-    android:id="@+id/button"
-    />
+    <TextView
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Name"/>
 
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/result"/>
+    <TextView
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:id="@+id/tvname"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text=""/>
 
+
+    <TextView
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Gender"/>
+
+    <TextView
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:id="@+id/tvgender"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text=""/>
+
+
+    <TextView
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Country"/>
+
+    <TextView
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:id="@+id/tvcountry"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text=""/>
+
+
+    <TextView
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Batch"/>
+
+    <TextView
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:id="@+id/tvbatch"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text=""/>
 
 </LinearLayout>
+

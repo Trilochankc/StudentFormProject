@@ -1,100 +1,120 @@
 package com.trilochan.studentformproject;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.jar.Attributes;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText Name;
-    private Button Btnsave;
-    private TextView txtresult;
+    EditText etname;
+    RadioGroup rdogrp;
+    RadioButton rdomale, rdofemale, rdoothers;
+    Spinner spcountry;
+    TextView tvname, tvgender, tvcountry, tvbatch;
+    AutoCompleteTextView actvbatch;
+    String[] batch = {"22A", "22B", "22C"};
+    Button btnsave;
+    Button closeButton;
+    AlertDialog.Builder builder;
 
-    private RadioGroup radioGroupId;
-    private RadioButton radioGenderButton;
-    private Button button;
 
 
-    Spinner spinner;
-    private AutoCompleteTextView autoCompleteTextView;
-    private String[] language = {"C", "C++", "C#", "JAVA", "PYTHON"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //for name entry
-        Name =findViewById(R.id.edttextName);
+        tvbatch = findViewById(R.id.tvbatch);
+
+        tvgender = findViewById(R.id.tvgender);
+        tvcountry = findViewById(R.id.tvcountry);
+        tvname = findViewById(R.id.tvname);
+        etname = findViewById(R.id.etname);
+        rdogrp = findViewById(R.id.rdogrp);
+        rdomale = findViewById(R.id.rdomale);
+        rdofemale = findViewById(R.id.rdofemale);
+        rdoothers = findViewById(R.id.rdoother);
+        spcountry = findViewById(R.id.spcountry);
+        actvbatch = findViewById(R.id.actvbatch);
+        btnsave = findViewById(R.id.btnsave);
+
+        //analog display
+
+        builder = new AlertDialog.Builder(this);
+
+        String countries[] = {"Nepal", "India", "Bhutan", "Pakistan", "China"};
+
+        ArrayAdapter adapter = new ArrayAdapter<>
+                (this, android.R.layout.simple_list_item_1, countries
+                );
+
+        spcountry.setAdapter(adapter);
+
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<>
+                (this, android.R.layout.simple_list_item_1, batch);
+
+        actvbatch.setAdapter(stringArrayAdapter);
+        actvbatch.setThreshold(1);
 
 
-
-        //Soinner starts
-        Spinner spinner = (Spinner) findViewById(R.id.country);
-        autoCompleteTextView = findViewById(R.id.auto);
-
-        List<String> spinnerArray =  new ArrayList<String>();
-        spinnerArray.add("Kathmandu");
-        spinnerArray.add("Bhaktapur");
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                (this, android.R.layout.simple_spinner_item, spinnerArray);
-
-        adapter.setDropDownViewResource(
-                android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-
-        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.select_dialog_item,
-                language
-        );
-        autoCompleteTextView.setAdapter(stringArrayAdapter);
-        autoCompleteTextView.setThreshold(1);
-
-
-        Toast.makeText(MainActivity.this, autoCompleteTextView.getText(), Toast.LENGTH_SHORT).show();
-
-            addButtonListener();
-
-    }
-
-    public void addButtonListener() {
-
-        radioGroupId = (RadioGroup) findViewById(R.id.radioGenderGroup);
-
-        button = (Button) findViewById(R.id.button);
-
-        button.setOnClickListener(new OnClickListener() {
-
+        btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                // get the selected radio button from the group
-                int selectedOption = radioGroupId.getCheckedRadioButtonId();
+                builder.setMessage("Do you want to close this application?")
+                        .setCancelable(false)
+                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                                Toast.makeText(MainActivity.this, "you clicked yes", Toast.LENGTH_SHORT).show();
 
-                // find the radiobutton by the previously returned id
-                radioGenderButton = (RadioButton) findViewById(selectedOption);
+                                int selectedId = rdogrp.getCheckedRadioButtonId();
+                                RadioButton radioButton;
+                                radioButton =findViewById(selectedId);
+                                tvgender.setText(radioButton.getText());
 
-                Toast.makeText(MainActivity.this, radioGenderButton.getText(), Toast.LENGTH_SHORT).show();
+                                tvname.setText(etname.getText());
+                                tvbatch.setText(actvbatch.getText());
+                                tvcountry.setText(spcountry.getSelectedItem().toString());
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                                Toast.makeText(MainActivity.this, "you clicked no", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                //creating dialog boc
+                AlertDialog alert =  builder.create();
+                alert.setTitle("my title");
+                alert.show();
+
+
 
             }
 
+        });
 
-});
+
+    }
+
+
 }
-}
+

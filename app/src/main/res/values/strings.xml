@@ -1,13 +1,13 @@
 <resources>
 
 
-        <string name="app_name">RadioButtonExample</string>
-        <string name="hello_world">Hello world!</string>
+       <string name="app_name">RadioButtonExample</string>
+       <!-- <string name="hello_world">Hello world!</string>
         <string name="menu_settings">Settings</string>
         <string name="male_ch">Male</string>
         <string name="female_ch">Female</string>
         <string name="others_ch">Others</string>
-        <string name="button_label">Display</string>
+        <string name="button_label">Display</string>&ndash;&gt;-->
 
 
 </resources>
